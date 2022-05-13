@@ -34,7 +34,7 @@ Implementerat kod för att spara det som står i alla edit text till SQLite Data
 
 Knappen read tog betydligt längre tid än allt annat i denna uppgift.
 Missade att skapa en UserModel att spara datan som ska läsas till instancer som sparas i lista.
-Efter läst igenom dubba 10ggr extra, tagit hjälp av developer.android.com och youtube lyckades lösa problemet och knappen visar upp all sparad data i text view med en tom rad mellan varje object.SQLite
+Efter läst igenom dugga 10ggr extra, tagit hjälp av developer.android.com och youtube lyckades lösa problemet och knappen visar upp all sparad data i text view med en tom rad mellan varje object.SQLite
 I DataBaseHelper
 ```Java
 
