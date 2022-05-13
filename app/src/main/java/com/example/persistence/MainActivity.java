@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("BTN", "btn read clicked");
                 List<UserModel> allUsers = dataBaseHelper.getAllUsers();
-                List<UserModel> allUsers2 = dataBaseHelper.getAllUsers2();
+
                 Log.d("BTN", "" +  allUsers.toString());
-                Log.d("BTN", "" +  allUsers2.toString());
-                viewAll.setText(allUsers2.toString());
+
+                viewAll.setText(allUsers.toString());
             }
         });
         btnWrite.setOnClickListener(new View.OnClickListener() {

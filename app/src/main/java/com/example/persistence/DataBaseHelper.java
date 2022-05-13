@@ -33,34 +33,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(DatabaseTables.SQL_DELETE_TABLE_USERS);
         onCreate(sqLiteDatabase);
     }
-    public Cursor getData(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from " + DatabaseTables.Users.TABLE_NAME,null);
-        return cursor;
-    }
-     List<UserModel> getAllUsers(){
 
-           Cursor cursor = getReadableDatabase().query(DatabaseTables.Users.TABLE_NAME, null, null, null, null, null, null);
-            List<UserModel> returnList = new ArrayList<>();
-            while (cursor.moveToNext()) {
-                UserModel newUser = new UserModel(
-                        cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.Users.COLUMN_NAME_ID)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.Users.COLUMN_NAME_FORNAMN)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.Users.COLUMN_NAME_EFTERNAMN)),
-                        cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseTables.Users.COLUMN_NAME_TELNR)),
-                        cursor.getString(cursor.getColumnIndexOrThrow(DatabaseTables.Users.COLUMN_NAME_MAILADRESS))
-
-                );
-                returnList.add(newUser);
-            }
-            cursor.close();
-            return returnList;
-
-    }
-
-
-
-    public List<UserModel> getAllUsers2(){
+    public List<UserModel> getAllUsers(){
         SQLiteDatabase db = this.getReadableDatabase();
         String queryString = "SELECT * FROM " + DatabaseTables.Users.TABLE_NAME;
         Cursor cursor = db.rawQuery(queryString, null);

@@ -63,6 +63,6 @@ public class UserModel {
                 ", efternamn='" + efternamn + '\'' +
                 ", telNR=" + telNR +
                 ", mailadress='" + mailadress + '\'' +
-                '}' + "\n";
+                '}' + "\n" + "\n";
     }
 }
