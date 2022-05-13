@@ -3,6 +3,7 @@ package com.example.persistence;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText forNamn,efterNamn, telNR, mailAdress;
@@ -37,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("BTN", "btn read clicked");
+                List<UserModel> allUsers = dataBaseHelper.getAllUsers();
+                List<UserModel> allUsers2 = dataBaseHelper.getAllUsers2();
+                Log.d("BTN", "" +  allUsers.toString());
+                Log.d("BTN", "" +  allUsers2.toString());
+                viewAll.setText(allUsers2.toString());
             }
         });
         btnWrite.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         values.put(DatabaseTables.Users.COLUMN_NAME_MAILADRESS, mailadress);
         values.put(DatabaseTables.Users.COLUMN_NAME_TELNR, telnr);
         Log.d("BTN","" + values);
-        return dataBase.insert(DatabaseTables.Users.TABLE_NAME, null, values);
-
+       return dataBase.insert(DatabaseTables.Users.TABLE_NAME, null, values);
     };
+
 }
